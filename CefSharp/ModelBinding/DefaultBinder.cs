@@ -17,7 +17,7 @@ namespace CefSharp.ModelBinding
     /// </summary>
     public class DefaultBinder : IBinder
     {
-        private readonly static MethodInfo ToArrayMethodInfo = typeof(Enumerable).GetMethod("ToArray", BindingFlags.Public | BindingFlags.Static);
+        private static readonly MethodInfo ToArrayMethodInfo = typeof(Enumerable).GetMethod("ToArray", BindingFlags.Public | BindingFlags.Static);
 
         private readonly IFieldNameConverter fieldNameConverter;
 
