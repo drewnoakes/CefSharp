@@ -8,8 +8,6 @@ namespace CefSharp.Internals
 {
     public sealed class MethodInvocation
     {
-        private readonly List<object> parameters = new List<object>();
-
         public int BrowserId { get; private set; }
 
         public long FrameId { get; private set; }
@@ -20,10 +18,7 @@ namespace CefSharp.Internals
 
         public string MethodName { get; private set; }
 
-        public List<object> Parameters
-        {
-            get { return parameters; }
-        }
+        public List<object> Parameters { get; } = new List<object>();
 
         public MethodInvocation(int browserId, long frameId, long objectId, string methodName, long? callbackId)
         {
