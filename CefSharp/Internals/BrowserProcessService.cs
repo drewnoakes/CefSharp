@@ -10,12 +10,11 @@ namespace CefSharp.Internals
     internal class BrowserProcessService : IBrowserProcess
     {
         private readonly JavascriptObjectRepository javascriptObjectRepository;
-        private readonly BrowserProcessServiceHost host;
-        
+
         public BrowserProcessService()
         {
             var context = OperationContext.Current;
-            host = (BrowserProcessServiceHost)context.Host;
+            var host = (BrowserProcessServiceHost)context.Host;
 
             javascriptObjectRepository = host.JavascriptObjectRepository;
         }
