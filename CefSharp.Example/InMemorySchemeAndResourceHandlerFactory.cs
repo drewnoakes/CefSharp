@@ -71,8 +71,7 @@ namespace CefSharp.Example
             var fileName = uri.AbsolutePath;
             var extension = Path.GetExtension(fileName);
 
-            string resource;
-            if (ResourceDictionary.TryGetValue(fileName, out resource) && !string.IsNullOrEmpty(resource))
+            if (ResourceDictionary.TryGetValue(fileName, out var resource) && !string.IsNullOrEmpty(resource))
             {
                 //For css/js/etc it's important to specify a mime/type, here we use the file extension to perform a lookup
                 //there are overloads where you can specify more options including Encoding, mimeType
@@ -111,8 +110,7 @@ namespace CefSharp.Example
                 var fileName = uri.AbsolutePath;
                 var extension = Path.GetExtension(fileName);
 
-                string resource;
-                if (ResourceDictionary.TryGetValue(fileName, out resource) && !string.IsNullOrEmpty(resource))
+                if (ResourceDictionary.TryGetValue(fileName, out var resource) && !string.IsNullOrEmpty(resource))
                 {
                     //For css/js/etc it's important to specify a mime/type, here we use the file extension to perform a lookup
                     //there are overloads where you can specify more options including Encoding, mimeType

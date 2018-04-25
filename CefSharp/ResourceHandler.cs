@@ -943,8 +943,8 @@ namespace CefSharp
             {
                 extension = "." + extension;
             }
-            string mime;
-            return Mappings.TryGetValue(extension, out mime) ? mime : "application/octet-stream";
+
+            return Mappings.TryGetValue(extension, out var mime) ? mime : "application/octet-stream";
         }
 
         /// <summary>

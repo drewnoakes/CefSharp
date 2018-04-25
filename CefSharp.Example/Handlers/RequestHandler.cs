@@ -62,8 +62,7 @@ namespace CefSharp.Example.Handlers
 
         public override CefReturnValue OnBeforeResourceLoad(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IRequestCallback callback)
         {
-            Uri url;
-            if (Uri.TryCreate(request.Url, UriKind.Absolute, out url) == false)
+            if (Uri.TryCreate(request.Url, UriKind.Absolute, out var url) == false)
             {
                 //If we're unable to parse the Uri then cancel the request
                 // avoid throwing any exceptions here as we're being called by unmanaged code
@@ -236,8 +235,7 @@ namespace CefSharp.Example.Handlers
             var url = new Uri(request.Url);
             if (url.Scheme == CefSharpSchemeHandlerFactory.SchemeName)
             {
-                MemoryStreamResponseFilter filter;
-                if(responseDictionary.TryGetValue(request.Identifier, out filter))
+                if(responseDictionary.TryGetValue(request.Identifier, out var filter))
                 {
                     //TODO: Do something with the data here
                     var data = filter.Data;

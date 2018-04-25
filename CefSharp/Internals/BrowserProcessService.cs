@@ -22,27 +22,21 @@ namespace CefSharp.Internals
 
         public BrowserProcessResponse CallMethod(long objectId, string name, object[] parameters)
         {
-            object result;
-            string exception;
-            
-            var success = javascriptObjectRepository.TryCallMethod(objectId, name, parameters, out result, out exception);
+            var success = javascriptObjectRepository.TryCallMethod(objectId, name, parameters, out var result, out var exception);
 
             return new BrowserProcessResponse { Success = success, Result = result, Message = exception };
         }
 
         public BrowserProcessResponse GetProperty(long objectId, string name)
         {
-            object result;
-            string exception;
-            var success = javascriptObjectRepository.TryGetProperty(objectId, name, out result, out exception);
+            var success = javascriptObjectRepository.TryGetProperty(objectId, name, out var result, out var exception);
 
             return new BrowserProcessResponse { Success = success, Result = result, Message = exception };
         }
 
         public BrowserProcessResponse SetProperty(long objectId, string name, object value)
         {
-            string exception;
-            var success = javascriptObjectRepository.TrySetProperty(objectId, name, value, out exception);
+            var success = javascriptObjectRepository.TrySetProperty(objectId, name, value, out var exception);
 
             return new BrowserProcessResponse { Success = success, Result = null, Message = exception };
         }

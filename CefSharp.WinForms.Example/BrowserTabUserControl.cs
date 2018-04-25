@@ -202,9 +202,8 @@ namespace CefSharp.WinForms.Example
                 //Get the underlying browser host wrapper
                 var browserHost = Browser.GetBrowser().GetHost();
                 var requestContext = browserHost.RequestContext;
-                string errorMessage;
                 // Browser must be initialized before getting/setting preferences
-                var success = requestContext.SetPreference("enable_do_not_track", true, out errorMessage);
+                var success = requestContext.SetPreference("enable_do_not_track", true, out var errorMessage);
                 if(!success)
                 {
                     this.InvokeOnUiThreadIfRequired(() => MessageBox.Show("Unable to set preference enable_do_not_track errorMessage: " + errorMessage));
@@ -229,8 +228,7 @@ namespace CefSharp.WinForms.Example
                         {
                             while (true)
                             {
-                                IntPtr chromeWidgetHostHandle;
-                                if (ChromeWidgetHandleFinder.TryFindHandle(browserHandle, out chromeWidgetHostHandle))
+                                if (ChromeWidgetHandleFinder.TryFindHandle(browserHandle, out var chromeWidgetHostHandle))
                                 {
                                     messageInterceptor = new ChromeWidgetMessageInterceptor((Control)Browser, chromeWidgetHostHandle, message =>
                                     {

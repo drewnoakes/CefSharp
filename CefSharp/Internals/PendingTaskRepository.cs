@@ -50,8 +50,7 @@ namespace CefSharp.Internals
         /// </returns>
         public TaskCompletionSource<TResult> RemovePendingTask(long id)
         {
-            TaskCompletionSource<TResult> result;
-            pendingTasks.TryRemove(id, out result);
+            pendingTasks.TryRemove(id, out var result);
             return result;
         }
     }

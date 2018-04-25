@@ -88,8 +88,7 @@ namespace CefSharp.Example
                 return ResourceHandler.FromString("", ".html");
             }
 
-            string resource;
-            if (ResourceDictionary.TryGetValue(fileName, out resource) && !string.IsNullOrEmpty(resource))
+            if (ResourceDictionary.TryGetValue(fileName, out var resource) && !string.IsNullOrEmpty(resource))
             {
                 var fileExtension = Path.GetExtension(fileName);
                 return ResourceHandler.FromString(resource, includePreamble:true, mimeType:ResourceHandler.GetMimeType(fileExtension));

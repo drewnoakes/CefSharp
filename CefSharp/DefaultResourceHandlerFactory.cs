@@ -38,8 +38,7 @@ namespace CefSharp
         /// <returns>returns true if the Url was successfully parsed into a Uri otherwise false</returns>
         public virtual bool RegisterHandler(string url, IResourceHandler handler, bool oneTimeUse = false)
         {
-            Uri uri;
-            if (Uri.TryCreate(url, UriKind.Absolute, out uri))
+            if (Uri.TryCreate(url, UriKind.Absolute, out var uri))
             {
                 var entry = new DefaultResourceHandlerFactoryItem(handler, oneTimeUse);
 
@@ -80,9 +79,7 @@ namespace CefSharp
         {
             try
             {
-                DefaultResourceHandlerFactoryItem entry;
-
-                if (Handlers.TryGetValue(request.Url, out entry))
+                if (Handlers.TryGetValue(request.Url, out var entry))
                 {
                     if (entry.OneTimeUse)
                     {

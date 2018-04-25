@@ -165,8 +165,7 @@ namespace CefSharp.Internals
         {
             exception = "";
             result = null;
-            JavascriptObject obj;
-            if (!objects.TryGetValue(objectId, out obj))
+            if (!objects.TryGetValue(objectId, out var obj))
             {
                 return false;
             }
@@ -301,8 +300,7 @@ namespace CefSharp.Internals
         {
             exception = "";
             result = null;
-            JavascriptObject obj;
-            if (!objects.TryGetValue(objectId, out obj))
+            if (!objects.TryGetValue(objectId, out var obj))
             {
                 return false;
             }
@@ -330,8 +328,7 @@ namespace CefSharp.Internals
         public bool TrySetProperty(long objectId, string name, object value, out string exception)
         {
             exception = "";
-            JavascriptObject obj;
-            if (!objects.TryGetValue(objectId, out obj))
+            if (!objects.TryGetValue(objectId, out var obj))
             {
                 return false;
             }
