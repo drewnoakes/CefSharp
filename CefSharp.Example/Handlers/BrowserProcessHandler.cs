@@ -68,10 +68,9 @@ namespace CefSharp.Example.Handlers
             //Dispose of context when finished - preferable not to keep a reference if possible.
             using (var context = Cef.GetGlobalRequestContext())
             {
-                string errorMessage;
                 //You can set most preferences using a `.` notation rather than having to create a complex set of dictionaries.
                 //The default is true, you can change to false to disable
-                context.SetPreference("webkit.webprefs.plugins_enabled", true, out errorMessage);
+                context.SetPreference("webkit.webprefs.plugins_enabled", true, out _);
 
                 //It's possible to register a scheme handler for the default http and https schemes
                 //In this example we register the FolderSchemeHandlerFactory for https://cefsharp.example
