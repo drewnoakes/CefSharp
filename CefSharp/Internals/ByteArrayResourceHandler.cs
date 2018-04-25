@@ -40,14 +40,9 @@ namespace CefSharp
                 throw new ArgumentNullException("mimeType", "Please provide a valid mimeType");
             }
 
-            if(data == null)
-            {
-                throw new ArgumentNullException("data", "Please provide a valid array");
-            }
 
-            
             MimeType = mimeType;
-            Data = data;
+            Data = data ?? throw new ArgumentNullException("data", "Please provide a valid array");
         }
 
         bool IResourceHandler.ProcessRequest(IRequest request, ICallback callback)
