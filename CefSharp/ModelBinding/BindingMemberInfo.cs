@@ -99,19 +99,12 @@ namespace CefSharp.ModelBinding
         /// <inherit-doc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
+            if (obj is BindingMemberInfo other)
             {
-                return false;
+                return this.MemberInfo.Equals(other.MemberInfo);
             }
 
-            var other = obj as BindingMemberInfo;
-
-            if (other == null)
-            {
-                return false;
-            }
-
-            return this.MemberInfo.Equals(other.MemberInfo);
+            return false;
         }
 
         /// <summary>

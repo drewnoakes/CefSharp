@@ -131,11 +131,7 @@ namespace CefSharp.Internals
 
         private void OnMethodInvocationComplete(MethodInvocationResult e)
         {
-            var handler = MethodInvocationComplete;
-            if (handler != null)
-            {
-                handler(this, new MethodInvocationCompleteArgs(e));
-            }
+            MethodInvocationComplete?.Invoke(this, new MethodInvocationCompleteArgs(e));
         }
     }
 }

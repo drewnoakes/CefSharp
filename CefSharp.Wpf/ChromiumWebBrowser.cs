@@ -1439,10 +1439,7 @@ namespace CefSharp.Wpf
         /// <param name="e">The <see cref="DragEventArgs"/> instance containing the event data.</param>
         private void OnDragLeave(object sender, DragEventArgs e)
         {
-            if(browser != null)
-            {
-                browser.GetHost().DragTargetDragLeave();
-            }
+            browser?.GetHost().DragTargetDragLeave();
         }
 
         /// <summary>
@@ -1452,10 +1449,7 @@ namespace CefSharp.Wpf
         /// <param name="e">The <see cref="DragEventArgs"/> instance containing the event data.</param>
         private void OnDragOver(object sender, DragEventArgs e)
         {
-            if(browser != null)
-            {
-                browser.GetHost().DragTargetDragOver(GetMouseEvent(e), GetDragOperationsMask(e.AllowedEffects));
-            }
+            browser?.GetHost().DragTargetDragOver(GetMouseEvent(e), GetDragOperationsMask(e.AllowedEffects));
         }
 
         /// <summary>
@@ -1557,9 +1551,9 @@ namespace CefSharp.Wpf
 
                     WpfKeyboardHandler.Setup(source);
 
-                    if (notifyDpiChanged && browser != null)
+                    if (notifyDpiChanged)
                     {
-                        browser.GetHost().NotifyScreenInfoChanged();
+                        browser?.GetHost().NotifyScreenInfoChanged();
                     }
 
                     //Ignore this for custom bitmap factories
@@ -1608,18 +1602,12 @@ namespace CefSharp.Wpf
                 case WindowState.Normal:
                 case WindowState.Maximized:
                 {
-                    if (browser != null)
-                    {
-                        browser.GetHost().WasHidden(false);
-                    }
+                    browser?.GetHost().WasHidden(false);
                     break;
                 }
                 case WindowState.Minimized:
                 {
-                    if (browser != null)
-                    {
-                        browser.GetHost().WasHidden(true);
-                    }
+                    browser?.GetHost().WasHidden(true);
                     break;
                 }
             }
@@ -1721,10 +1709,7 @@ namespace CefSharp.Wpf
             // Initialize RenderClientAdapter when WPF has calculated the actual size of current content.
             CreateOffscreenBrowser(e.NewSize);
 
-            if (browser != null)
-            {
-                browser.GetHost().WasResized();
-            }
+            browser?.GetHost().WasResized();
         }
 
         /// <summary>
@@ -1969,10 +1954,7 @@ namespace CefSharp.Wpf
         /// <param name="e">The <see cref="KeyboardFocusChangedEventArgs"/> instance containing the event data.</param>
         private void OnGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            if (browser != null)
-            {
-                browser.GetHost().SendFocusEvent(true);
-            }
+            browser?.GetHost().SendFocusEvent(true);
         }
 
         /// <summary>
@@ -1982,10 +1964,7 @@ namespace CefSharp.Wpf
         /// <param name="e">The <see cref="KeyboardFocusChangedEventArgs"/> instance containing the event data.</param>
         private void OnLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            if (browser != null)
-            {
-                browser.GetHost().SendFocusEvent(false);
-            }
+            browser?.GetHost().SendFocusEvent(false);
         }
 
         /// <summary>
@@ -2211,10 +2190,7 @@ namespace CefSharp.Wpf
 
             // Added null check -> binding-triggered changes of Address will lead to a nullref after Dispose has been called
             // or before OnApplyTemplate has been called
-            if (browser != null)
-            {
-                browser.MainFrame.LoadUrl(url);
-            }
+            browser?.MainFrame.LoadUrl(url);
         }
 
         /// <summary>

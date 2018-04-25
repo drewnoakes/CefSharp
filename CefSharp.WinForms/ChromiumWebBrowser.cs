@@ -656,12 +656,7 @@ namespace CefSharp.WinForms
 
             ResizeBrowser();
 
-            var handler = IsBrowserInitializedChanged;
-
-            if (handler != null)
-            {
-                handler(this, new IsBrowserInitializedChangedEventArgs(IsBrowserInitialized));
-            }
+            IsBrowserInitializedChanged?.Invoke(this, new IsBrowserInitializedChangedEventArgs(IsBrowserInitialized));
         }
 
         /// <summary>
@@ -672,11 +667,7 @@ namespace CefSharp.WinForms
         {
             Address = args.Address;
 
-            var handler = AddressChanged;
-            if (handler != null)
-            {
-                handler(this, args);
-            }
+            AddressChanged?.Invoke(this, args);
         }
 
         /// <summary>
@@ -689,11 +680,7 @@ namespace CefSharp.WinForms
             CanGoForward = args.CanGoForward;
             IsLoading = args.IsLoading;
 
-            var handler = LoadingStateChanged;
-            if (handler != null)
-            {
-                handler(this, args);
-            }
+            LoadingStateChanged?.Invoke(this, args);
         }
 
         /// <summary>
@@ -702,11 +689,7 @@ namespace CefSharp.WinForms
         /// <param name="args">The <see cref="TitleChangedEventArgs"/> instance containing the event data.</param>
         void IWebBrowserInternal.SetTitle(TitleChangedEventArgs args)
         {
-            var handler = TitleChanged;
-            if (handler != null)
-            {
-                handler(this, args);
-            }
+            TitleChanged?.Invoke(this, args);
         }
 
         /// <summary>
@@ -724,11 +707,7 @@ namespace CefSharp.WinForms
         /// <param name="args">The <see cref="FrameLoadStartEventArgs"/> instance containing the event data.</param>
         void IWebBrowserInternal.OnFrameLoadStart(FrameLoadStartEventArgs args)
         {
-            var handler = FrameLoadStart;
-            if (handler != null)
-            {
-                handler(this, args);
-            }
+            FrameLoadStart?.Invoke(this, args);
         }
 
         /// <summary>
@@ -737,11 +716,7 @@ namespace CefSharp.WinForms
         /// <param name="args">The <see cref="FrameLoadEndEventArgs"/> instance containing the event data.</param>
         void IWebBrowserInternal.OnFrameLoadEnd(FrameLoadEndEventArgs args)
         {
-            var handler = FrameLoadEnd;
-            if (handler != null)
-            {
-                handler(this, args);
-            }
+            FrameLoadEnd?.Invoke(this, args);
         }
 
         /// <summary>
@@ -750,11 +725,7 @@ namespace CefSharp.WinForms
         /// <param name="args">The <see cref="ConsoleMessageEventArgs"/> instance containing the event data.</param>
         void IWebBrowserInternal.OnConsoleMessage(ConsoleMessageEventArgs args)
         {
-            var handler = ConsoleMessage;
-            if (handler != null)
-            {
-                handler(this, args);
-            }
+            ConsoleMessage?.Invoke(this, args);
         }
 
         /// <summary>
@@ -763,11 +734,7 @@ namespace CefSharp.WinForms
         /// <param name="args">The <see cref="StatusMessageEventArgs"/> instance containing the event data.</param>
         void IWebBrowserInternal.OnStatusMessage(StatusMessageEventArgs args)
         {
-            var handler = StatusMessage;
-            if (handler != null)
-            {
-                handler(this, args);
-            }
+            StatusMessage?.Invoke(this, args);
         }
 
         /// <summary>
@@ -776,11 +743,7 @@ namespace CefSharp.WinForms
         /// <param name="args">The <see cref="LoadErrorEventArgs"/> instance containing the event data.</param>
         void IWebBrowserInternal.OnLoadError(LoadErrorEventArgs args)
         {
-            var handler = LoadError;
-            if (handler != null)
-            {
-                handler(this, args);
-            }
+            LoadError?.Invoke(this, args);
         }
 
         void IWebBrowserInternal.SetCanExecuteJavascriptOnMainFrame(bool canExecute)

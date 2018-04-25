@@ -33,10 +33,7 @@ namespace CefSharp.Wpf.Example.Handlers
         private void DispatcherShutdownStarted(object sender, EventArgs e)
         {
             //If the dispatcher is shutting down then we stop the timer
-            if(timer != null)
-            {
-                timer.Stop();
-            }
+            timer?.Stop();
         }
 
         private void TimerTick(object sender, EventArgs e)

@@ -55,12 +55,7 @@ namespace CefSharp.Wpf.Example.Handlers
                     }
                 }
 
-                var handler = RegionsChanged;
-
-                if(handler != null)
-                {
-                    handler(draggableRegion);
-                }
+                RegionsChanged?.Invoke(draggableRegion);
             } 
         }
 

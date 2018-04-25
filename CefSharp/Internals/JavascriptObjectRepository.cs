@@ -426,12 +426,7 @@ namespace CefSharp.Internals
 
         private void RaiseResolveObjectEvent(string name)
         {
-            var handler = ResolveObject;
-
-            if(handler != null)
-            {
-                handler(this, new JavascriptBindingEventArgs(this, name));
-            }
+            ResolveObject?.Invoke(this, new JavascriptBindingEventArgs(this, name));
         }
 
         private static JavascriptMethod CreateJavaScriptMethod(MethodInfo methodInfo, bool camelCaseJavascriptNames)

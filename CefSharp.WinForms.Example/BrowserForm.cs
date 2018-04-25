@@ -135,20 +135,12 @@ namespace CefSharp.WinForms.Example
 
         private void FindMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.ShowFind();
-            }
+            GetCurrentTabControl()?.ShowFind();
         }
 
         private void CopySourceToClipBoardAsyncClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.CopySourceToClipBoardAsync();
-            }
+            GetCurrentTabControl()?.CopySourceToClipBoardAsync();
         }
 
         private BrowserTabUserControl GetCurrentTabControl()
@@ -200,74 +192,42 @@ namespace CefSharp.WinForms.Example
 
         private void UndoMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.Undo();
-            }
+            GetCurrentTabControl()?.Browser.Undo();
         }
 
         private void RedoMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.Redo();
-            }
+            GetCurrentTabControl()?.Browser.Redo();
         }
 
         private void CutMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.Cut();
-            }
+            GetCurrentTabControl()?.Browser.Cut();
         }
 
         private void CopyMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.Copy();
-            }
+            GetCurrentTabControl()?.Browser.Copy();
         }
 
         private void PasteMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.Paste();
-            }
+            GetCurrentTabControl()?.Browser.Paste();
         }
 
         private void DeleteMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.Delete();
-            }
+            GetCurrentTabControl()?.Browser.Delete();
         }
 
         private void SelectAllMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.SelectAll();
-            }
+            GetCurrentTabControl()?.Browser.SelectAll();
         }
 
         private void PrintToolStripMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.Print();
-            }
+            GetCurrentTabControl()?.Browser.Print();
         }
 
         private void ShowDevToolsMenuItemClick(object sender, EventArgs e)
@@ -314,11 +274,7 @@ namespace CefSharp.WinForms.Example
 
         private void CloseDevToolsMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.CloseDevTools();
-            }
+            GetCurrentTabControl()?.Browser.CloseDevTools();
         }
 
         private void ZoomInToolStripMenuItemClick(object sender, EventArgs e)
@@ -462,23 +418,12 @@ namespace CefSharp.WinForms.Example
 
         private void GoToDemoPageToolStripMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.Load("custom://cefsharp/ScriptedMethodsTest.html");
-            }
+            GetCurrentTabControl()?.Browser.Load("custom://cefsharp/ScriptedMethodsTest.html");
         }
 
         private void InjectJavascriptCodeToolStripMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                var frame = control.Browser.GetFocusedFrame();
-
-                //Execute extension method
-                frame.ListenForEvent("test-button", "click");
-            }
+            GetCurrentTabControl()?.Browser.GetFocusedFrame().ListenForEvent("test-button", "click");
         }
 
         private async void PrintToPdfToolStripMenuItemClick(object sender, EventArgs e)
@@ -519,21 +464,13 @@ namespace CefSharp.WinForms.Example
 
         private void OpenDataUrlToolStripMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                const string html = "<html><head><title>Test</title></head><body><h1>Html Encoded in URL!</h1></body></html>";
-                control.Browser.LoadHtml(html, false);
-            }
+            const string html = "<html><head><title>Test</title></head><body><h1>Html Encoded in URL!</h1></body></html>";
+            GetCurrentTabControl()?.Browser.LoadHtml(html, false);
         }
 
         private void OpenHttpBinOrgToolStripMenuItemClick(object sender, EventArgs e)
         {
-            var control = GetCurrentTabControl();
-            if (control != null)
-            {
-                control.Browser.Load("https://httpbin.org/");
-            }
+            GetCurrentTabControl()?.Browser.Load("https://httpbin.org/");
         }
     }
 }

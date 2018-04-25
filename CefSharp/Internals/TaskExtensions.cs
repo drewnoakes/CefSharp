@@ -78,10 +78,7 @@ namespace CefSharp.Internals
                 if (taskCompletionSource.Task.Status != TaskStatus.RanToCompletion)
                 {
                     taskCompletionSource.TrySetCanceled();
-                    if(cancelled != null)
-                    {
-                        cancelled();
-                    }
+                    cancelled?.Invoke();
                 }
             }, null, timeout, TimeSpan.FromMilliseconds(-1));
 

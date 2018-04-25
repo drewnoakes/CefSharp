@@ -44,10 +44,7 @@ namespace CefSharp.WinForms.Example
         {
             base.WndProc(ref m);
 
-            if (forwardAction != null)
-            {
-                forwardAction(m);
-            }
+            forwardAction?.Invoke(m);
         }
     }
 

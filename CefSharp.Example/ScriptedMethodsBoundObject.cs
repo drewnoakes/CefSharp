@@ -30,10 +30,7 @@ namespace CefSharp.Example
         /// </remarks>
         public void RaiseEvent(string eventName, object eventData = null)
         {
-            if (EventArrived != null)
-            {
-                EventArrived(eventName, eventData);
-            }
+            EventArrived?.Invoke(eventName, eventData);
         }
     }
 }
