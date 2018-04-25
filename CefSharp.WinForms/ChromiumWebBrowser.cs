@@ -582,7 +582,7 @@ namespace CefSharp.WinForms
 
         public IJavascriptObjectRepository JavascriptObjectRepository
         {
-            get { return managedCefBrowserAdapter == null ? null : managedCefBrowserAdapter.JavascriptObjectRepository; }
+            get { return managedCefBrowserAdapter?.JavascriptObjectRepository; }
         }
 
         /// <summary>

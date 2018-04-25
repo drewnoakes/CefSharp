@@ -60,14 +60,12 @@ namespace CefSharp.WinForms.Internals
              }
  
             Control activeControl = form.ActiveControl;
-            while (activeControl != null
-                   && (activeControl is ContainerControl)
-                   && !Object.ReferenceEquals(control, activeControl))
+            while (activeControl is ContainerControl && !ReferenceEquals(control, activeControl))
             {
                 var containerControl = activeControl as ContainerControl;
                 activeControl = containerControl.ActiveControl;
             }
-            return Object.ReferenceEquals(control, activeControl);
+            return ReferenceEquals(control, activeControl);
         }
 
         /// <summary>

@@ -46,7 +46,7 @@ namespace CefSharp.Example.Filters
         FilterStatus IResponseFilter.Filter(Stream dataIn, out long dataInRead, Stream dataOut, out long dataOutWritten) 
         {
             // All data will be read.
-            dataInRead = dataIn == null ? 0 : dataIn.Length;
+            dataInRead = dataIn?.Length ?? 0;
             dataOutWritten = 0;
 
             // Write overflow then reset

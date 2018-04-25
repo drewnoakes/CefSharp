@@ -720,9 +720,7 @@ namespace CefSharp
         /// <returns>browserHost or null</returns>
         public static IBrowserHost GetBrowserHost(this IWebBrowser browser)
         {
-            var cefBrowser = browser.GetBrowser();
-
-            return cefBrowser == null ? null : cefBrowser.GetHost();
+            return browser.GetBrowser()?.GetHost();
         }
 
         /// <summary>

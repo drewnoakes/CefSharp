@@ -149,14 +149,14 @@ namespace CefSharp.Internals
                 throw new ArgumentException("Object already bound with name:" + name , name);
             }
 
-            var camelCaseJavascriptNames = options == null ? true : options.CamelCaseJavascriptNames;
+            var camelCaseJavascriptNames = options == null || options.CamelCaseJavascriptNames;
             var jsObject = CreateJavascriptObject(camelCaseJavascriptNames);
             jsObject.Value = value;
             jsObject.Name = name;
             jsObject.JavascriptName = name;
             jsObject.IsAsync = isAsync;
-            jsObject.Binder = options == null ? null : options.Binder;
-            jsObject.MethodInterceptor = options == null ? null : options.MethodInterceptor;
+            jsObject.Binder = options?.Binder;
+            jsObject.MethodInterceptor = options?.MethodInterceptor;
 
             AnalyseObjectForBinding(jsObject, analyseMethods: true, analyseProperties: !isAsync, readPropertyValue: false, camelCaseJavascriptNames: camelCaseJavascriptNames);
         }
