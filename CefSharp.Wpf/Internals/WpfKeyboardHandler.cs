@@ -97,9 +97,9 @@ namespace CefSharp.Wpf.Internals
             if (browser != null) 
             {
                 var browserHost = browser.GetHost();
-                for (int i = 0; i < e.Text.Length; i++) 
+                foreach (var c in e.Text)
                 {
-                    browserHost.SendKeyEvent((int)WM.CHAR, e.Text[i], 0);
+                    browserHost.SendKeyEvent((int)WM.CHAR, c, 0);
                 }
                 e.Handled = true;
             }

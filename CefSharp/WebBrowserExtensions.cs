@@ -873,25 +873,24 @@ namespace CefSharp
 
             if (args.Length > 0)
             {
-                for (int i = 0; i < args.Length; i++)
+                foreach (var arg in args)
                 {
-                    var obj = args[i];
-                    if (obj == null)
+                    if (arg == null)
                     {
                         stringBuilder.Append("null");
                     }
-                    else if (numberTypes.Contains(obj.GetType()))
+                    else if (numberTypes.Contains(arg.GetType()))
                     {
-                        stringBuilder.Append(Convert.ToString(args[i], CultureInfo.InvariantCulture));
+                        stringBuilder.Append(Convert.ToString(arg, CultureInfo.InvariantCulture));
                     }
-                    else if (obj is bool)
+                    else if (arg is bool)
                     {
-                        stringBuilder.Append(args[i].ToString().ToLowerInvariant());
+                        stringBuilder.Append(arg.ToString().ToLowerInvariant());
                     }
                     else
                     {
                         stringBuilder.Append("'");
-                        stringBuilder.Append(EncodeScriptParam(obj.ToString()));
+                        stringBuilder.Append(EncodeScriptParam(arg.ToString()));
                         stringBuilder.Append("'");
                     }
 
