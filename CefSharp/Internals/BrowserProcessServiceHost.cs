@@ -45,17 +45,22 @@ namespace CefSharp.Internals
 
         public static CustomBinding CreateBinding()
         {
-            var binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-            binding.MaxReceivedMessageSize = OneHundredAndTwentyEightMegaBytesInBytes;
-            binding.ReceiveTimeout = TimeSpan.MaxValue;
-            binding.SendTimeout = TimeSpan.MaxValue;
-            binding.OpenTimeout = TimeSpan.MaxValue;
-            binding.CloseTimeout = TimeSpan.MaxValue;
-            binding.ReaderQuotas.MaxStringContentLength = int.MaxValue;
-            binding.ReaderQuotas.MaxArrayLength = int.MaxValue;
-            binding.ReaderQuotas.MaxDepth = int.MaxValue;
-            binding.ReaderQuotas.MaxNameTableCharCount = int.MaxValue;
-            binding.ReaderQuotas.MaxBytesPerRead = int.MaxValue;
+            var binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None)
+            {
+                MaxReceivedMessageSize = OneHundredAndTwentyEightMegaBytesInBytes,
+                ReceiveTimeout = TimeSpan.MaxValue,
+                SendTimeout = TimeSpan.MaxValue,
+                OpenTimeout = TimeSpan.MaxValue,
+                CloseTimeout = TimeSpan.MaxValue,
+                ReaderQuotas =
+                {
+                    MaxStringContentLength = int.MaxValue,
+                    MaxArrayLength = int.MaxValue,
+                    MaxDepth = int.MaxValue,
+                    MaxNameTableCharCount = int.MaxValue,
+                    MaxBytesPerRead = int.MaxValue
+                }
+            };
 
             // Ensure binding connection stays open indefinitely until closed
             var customBinding = new CustomBinding(binding);

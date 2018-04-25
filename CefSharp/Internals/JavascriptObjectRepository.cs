@@ -431,18 +431,21 @@ namespace CefSharp.Internals
 
         private static JavascriptMethod CreateJavaScriptMethod(MethodInfo methodInfo, bool camelCaseJavascriptNames)
         {
-            var jsMethod = new JavascriptMethod();
+            var jsMethod = new JavascriptMethod
+            {
+                ManagedName = methodInfo.Name,
+                JavascriptName = GetJavascriptName(methodInfo.Name, camelCaseJavascriptNames),
+                Function = methodInfo.Invoke,
+                ParameterCount = methodInfo.GetParameters().Length,
+                Parameters = methodInfo.GetParameters()
+                    .Select(
+                        t => new MethodParameter()
+                        {
+                            IsParamArray = t.GetCustomAttributes(typeof(ParamArrayAttribute), false).Length > 0,
+                            Type = t.ParameterType
+                        }).ToList()
+            };
 
-            jsMethod.ManagedName = methodInfo.Name;
-            jsMethod.JavascriptName = GetJavascriptName(methodInfo.Name, camelCaseJavascriptNames);
-            jsMethod.Function = methodInfo.Invoke;
-            jsMethod.ParameterCount = methodInfo.GetParameters().Length;
-            jsMethod.Parameters = methodInfo.GetParameters()
-                .Select(t => new MethodParameter()
-                {
-                    IsParamArray = t.GetCustomAttributes(typeof(ParamArrayAttribute), false).Length > 0,
-                    Type = t.ParameterType
-                }).ToList();
             //Pre compute HasParamArray for a very minor performance gain 
             jsMethod.HasParamArray = jsMethod.Parameters.LastOrDefault(t => t.IsParamArray) != null;
 
@@ -451,17 +454,15 @@ namespace CefSharp.Internals
 
         private static JavascriptProperty CreateJavaScriptProperty(PropertyInfo propertyInfo, bool camelCaseJavascriptNames)
         {
-            var jsProperty = new JavascriptProperty();
-
-            jsProperty.ManagedName = propertyInfo.Name;
-            jsProperty.JavascriptName = GetJavascriptName(propertyInfo.Name, camelCaseJavascriptNames);
-            jsProperty.SetValue = (o, v) => propertyInfo.SetValue(o, v, null);
-            jsProperty.GetValue = (o) => propertyInfo.GetValue(o, null);
-
-            jsProperty.IsComplexType = IsComplexType(propertyInfo.PropertyType);
-            jsProperty.IsReadOnly = !propertyInfo.CanWrite;
-
-            return jsProperty;
+            return new JavascriptProperty
+            {
+                ManagedName = propertyInfo.Name,
+                JavascriptName = GetJavascriptName(propertyInfo.Name, camelCaseJavascriptNames),
+                SetValue = (o, v) => propertyInfo.SetValue(o, v, null),
+                GetValue = (o) => propertyInfo.GetValue(o, null),
+                IsComplexType = IsComplexType(propertyInfo.PropertyType),
+                IsReadOnly = !propertyInfo.CanWrite
+            };
         }
 
         private static bool IsComplexType(Type type)

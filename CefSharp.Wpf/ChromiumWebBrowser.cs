@@ -1787,8 +1787,10 @@ namespace CefSharp.Wpf
                 DispatcherPriority.Render,
                 OnTooltipTimerTick,
                 Dispatcher
-                );
-            tooltipTimer.IsEnabled = false;
+            )
+            {
+                IsEnabled = false
+            };
 
             //Initial value for screen location
             browserScreenLocation = GetBrowserScreenLocation();

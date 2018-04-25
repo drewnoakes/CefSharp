@@ -46,11 +46,12 @@ namespace CefSharp.WinForms.Example.Handlers
 
                     parent.Controls.Remove(chromiumWebBrowser);
 
-                    fullScreenForm = new Form();
-                    fullScreenForm.FormBorderStyle = FormBorderStyle.None;
-                    fullScreenForm.WindowState = FormWindowState.Maximized;
-
-                    fullScreenForm.Controls.Add(chromiumWebBrowser);
+                    fullScreenForm = new Form
+                    {
+                        FormBorderStyle = FormBorderStyle.None,
+                        WindowState = FormWindowState.Maximized,
+                        Controls = { chromiumWebBrowser }
+                    };
 
                     fullScreenForm.ShowDialog(parent.FindForm());
                 }

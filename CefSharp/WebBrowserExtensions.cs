@@ -248,10 +248,11 @@ namespace CefSharp
                 request.PostData.AddData(postDataBytes);
 
                 if(!string.IsNullOrEmpty(contentType))
-                { 
-                    var headers = new NameValueCollection();
-                    headers.Add("Content-Type", contentType);
-                    request.Headers = headers;
+                {
+                    request.Headers = new NameValueCollection
+                    {
+                        {"Content-Type", contentType}
+                    };
                 }
 
                 frame.LoadRequest(request);
