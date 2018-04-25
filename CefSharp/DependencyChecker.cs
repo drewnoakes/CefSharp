@@ -184,7 +184,7 @@ namespace CefSharp
 
             if (string.IsNullOrEmpty(localesDirPath))
             {
-                localesDirPath = @"locales";
+                localesDirPath = "locales";
             }
 
             if (string.IsNullOrEmpty(resourcesDirPath))
