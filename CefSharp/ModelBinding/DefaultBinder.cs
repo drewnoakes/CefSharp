@@ -135,7 +135,7 @@ namespace CefSharp.ModelBinding
             {
                 // If the object type is a dictionary (we're using ExpandoObject instead of Dictionary now)
                 // Then attempt to bind all the members
-                if (typeof(IDictionary<string, object>).IsAssignableFrom(bindingContext.Object.GetType()))
+                if (bindingContext.Object is IDictionary<string, object>)
                 { 
                     foreach (var modelProperty in bindingContext.ValidModelBindingMembers)
                     {
