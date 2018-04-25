@@ -13,14 +13,14 @@ namespace CefSharp.Test.Framework
     /// </summary>
     public class BinderFacts
     {
-        enum TestEnum 
+        private enum TestEnum 
         {
             A,
             B,
             C
         }
 
-        class TestObject 
+        private class TestObject 
         {
             public string AString;
             public bool ABool;

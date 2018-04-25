@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CefSharp.WinForms.Example
 {
-    partial class AboutBox : Form
+    internal partial class AboutBox : Form
     {
         private Assembly ExecutingAssembly { get; set; }
 

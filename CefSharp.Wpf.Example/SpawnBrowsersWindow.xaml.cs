@@ -9,8 +9,8 @@ namespace CefSharp.Wpf.Example
     /// </summary>
     public partial class SpawnBrowsersWindow : Window
     {
-        bool _isRunning;
-        bool _requestCancel;
+        private bool _isRunning;
+        private bool _requestCancel;
         private const int MAX_SPEED = 1000;
 
         public SpawnBrowsersWindow()
