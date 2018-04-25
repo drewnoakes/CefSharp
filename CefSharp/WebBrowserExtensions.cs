@@ -777,7 +777,7 @@ namespace CefSharp
         {
             if (timeout.HasValue && timeout.Value.TotalMilliseconds > UInt32.MaxValue)
             {
-                throw new ArgumentOutOfRangeException("timeout", "Timeout greater than Maximum allowable value of " + UInt32.MaxValue);
+                throw new ArgumentOutOfRangeException(nameof(timeout), "Timeout greater than Maximum allowable value of " + UInt32.MaxValue);
             }
 
             //TODO: Re-enable when Native IPC issue resolved.

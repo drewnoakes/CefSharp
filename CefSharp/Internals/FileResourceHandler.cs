@@ -35,12 +35,12 @@ namespace CefSharp
         {
             if(string.IsNullOrEmpty(mimeType))
             {
-                throw new ArgumentNullException("mimeType", "Please provide a valid mimeType");
+                throw new ArgumentNullException(nameof(mimeType), "Please provide a valid mimeType");
             }
 
             if(string.IsNullOrEmpty(filePath))
             {
-                throw new ArgumentNullException("filePath", "Please provide a valid filePath");
+                throw new ArgumentNullException(nameof(filePath), "Please provide a valid filePath");
             }
 
             if(!File.Exists(filePath))

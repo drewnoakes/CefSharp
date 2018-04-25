@@ -53,7 +53,7 @@ namespace CefSharp.WinForms.Example.Helper
         /// <param name="browser">The browser.</param>
         public PopupAsChildHelper(IBrowser browser)
         {
-            this.browser = browser ?? throw new ArgumentNullException("browser");
+            this.browser = browser ?? throw new ArgumentNullException(nameof(browser));
 
             //From the browser we grab the window handle (hwnd)
             this.browserHandle = browser.GetHost().GetWindowHandle();

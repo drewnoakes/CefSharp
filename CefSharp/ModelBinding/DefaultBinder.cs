@@ -33,7 +33,7 @@ namespace CefSharp.ModelBinding
         /// <param name="fieldNameConverter">used to convert field names to property names</param>
         public DefaultBinder(IFieldNameConverter fieldNameConverter)
         {
-            this.fieldNameConverter = fieldNameConverter ?? throw new ArgumentNullException("fieldNameConverter");
+            this.fieldNameConverter = fieldNameConverter ?? throw new ArgumentNullException(nameof(fieldNameConverter));
             BlackListedPropertyNames = new List<string>();
         }
 

@@ -30,12 +30,12 @@ namespace CefSharp
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             }
 
             if (string.IsNullOrEmpty(javascriptCode))
             {
-                throw new ArgumentNullException("javascriptCode");
+                throw new ArgumentNullException(nameof(javascriptCode));
             }
 
             Name = name;

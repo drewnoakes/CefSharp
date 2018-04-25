@@ -37,12 +37,12 @@ namespace CefSharp
         {
             if(string.IsNullOrEmpty(mimeType))
             {
-                throw new ArgumentNullException("mimeType", "Please provide a valid mimeType");
+                throw new ArgumentNullException(nameof(mimeType), "Please provide a valid mimeType");
             }
 
 
             MimeType = mimeType;
-            Data = data ?? throw new ArgumentNullException("data", "Please provide a valid array");
+            Data = data ?? throw new ArgumentNullException(nameof(data), "Please provide a valid array");
         }
 
         bool IResourceHandler.ProcessRequest(IRequest request, ICallback callback)

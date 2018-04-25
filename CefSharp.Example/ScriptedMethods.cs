@@ -23,7 +23,7 @@ namespace CefSharp.Example
         {
             if (frame == null)
             {
-                throw new ArgumentException("An IFrame instance is required.", "frame");
+                throw new ArgumentException("An IFrame instance is required.", nameof(frame));
             }
 
             // Scripts should be minified for production builds. The script
@@ -69,7 +69,7 @@ namespace CefSharp.Example
         {
             if (frame == null)
             {
-                throw new ArgumentException("An IFrame instance is required.", "frame");
+                throw new ArgumentException("An IFrame instance is required.", nameof(frame));
             }
 
             var script =
@@ -106,7 +106,7 @@ namespace CefSharp.Example
         {
             if (frame == null)
             {
-                throw new ArgumentException("An IFrame instance is required.", "frame");
+                throw new ArgumentException("An IFrame instance is required.", nameof(frame));
             }
 
             // Adds a click event listener to a DOM element with the provided

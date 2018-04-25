@@ -59,7 +59,7 @@ namespace CefSharp.ModelBinding
         {
             if (propertyInfo == null)
             {
-                throw new ArgumentNullException("propertyInfo");
+                throw new ArgumentNullException(nameof(propertyInfo));
             }
 
             this.propertyInfo = propertyInfo;
@@ -73,7 +73,7 @@ namespace CefSharp.ModelBinding
         {
             if (fieldInfo == null)
             {
-                throw new ArgumentNullException("fieldInfo");
+                throw new ArgumentNullException(nameof(fieldInfo));
             }
 
             this.fieldInfo = fieldInfo;

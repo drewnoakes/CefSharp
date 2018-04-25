@@ -109,7 +109,7 @@ namespace CefSharp
         {
             if(string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             }
 
             var element = postData.CreatePostDataElement();
@@ -129,7 +129,7 @@ namespace CefSharp
         {
             if (string.IsNullOrEmpty(data))
             {
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
             }
 
             if(encoding == null)
@@ -153,7 +153,7 @@ namespace CefSharp
         {
             if (bytes == null)
             {
-                throw new ArgumentNullException("bytes");
+                throw new ArgumentNullException(nameof(bytes));
             }
 
             var element = postData.CreatePostDataElement();
