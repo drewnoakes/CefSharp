@@ -116,7 +116,7 @@ namespace CefSharp.Example
                 {"onepointfive", 1.5},
                 {"five", 5},
                 {"ten", "ten"},
-                {"twotwo", new Int32[]{2, 2} }
+                {"twotwo", new []{2, 2} }
             };
         }
 
