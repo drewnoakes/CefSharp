@@ -5,7 +5,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using CefSharp;
 using CefSharp.Example.Properties;
 
 namespace CefSharp.Example

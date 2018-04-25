@@ -6,7 +6,6 @@ using System;
 using System.Windows.Forms;
 using CefSharp.Example;
 using System.Threading.Tasks;
-using System.Text;
 
 namespace CefSharp.WinForms.Example
 {

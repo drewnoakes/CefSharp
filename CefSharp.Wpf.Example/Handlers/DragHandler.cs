@@ -4,7 +4,6 @@
 
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Collections.Generic;
 using CefSharp.Enums;
 

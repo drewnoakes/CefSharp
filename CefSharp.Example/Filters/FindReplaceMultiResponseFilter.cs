@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CefSharp;
 
 namespace CefSharp.Example.Filters 
 {

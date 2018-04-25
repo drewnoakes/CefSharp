@@ -4,12 +4,10 @@
 
 using System;
 using System.Linq;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using CefSharp.Example.Properties;
 
 namespace CefSharp.Example
 {

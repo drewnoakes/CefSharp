@@ -4,8 +4,6 @@
 
 using System;
 using System.IO;
-using System.Threading.Tasks;
-using CefSharp.Internals;
 
 namespace CefSharp.Example.Filters
 {

@@ -5,11 +5,8 @@
 using System;
 using System.Diagnostics;
 using System.Text;
-using System.Threading.Tasks;
-using CefSharp.Example.Handlers;
 using CefSharp.Example.Properties;
 using CefSharp.Example.Proxy;
-using CefSharp.Internals;
 using CefSharp.SchemeHandler;
 
 namespace CefSharp.Example
