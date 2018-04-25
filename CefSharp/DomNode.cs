@@ -71,7 +71,7 @@ namespace CefSharp
                     return new ReadOnlyCollection<string> (new List<string> ());
                 }
 
-                return Array.AsReadOnly<string> (_attributes.Keys.ToArray ());
+                return Array.AsReadOnly (_attributes.Keys.ToArray ());
             }
         }
 

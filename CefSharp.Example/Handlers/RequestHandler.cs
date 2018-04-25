@@ -217,7 +217,7 @@ namespace CefSharp.Example.Handlers
 
                 if (request.Url.Equals("custom://cefsharp/assets/js/jquery.js", StringComparison.OrdinalIgnoreCase))
                 {
-                    return new AppendResponseFilter(System.Environment.NewLine + "//CefSharp Appended this comment.");
+                    return new AppendResponseFilter(Environment.NewLine + "//CefSharp Appended this comment.");
                 }
 
                 //Only called for our customScheme
