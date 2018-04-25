@@ -9,7 +9,7 @@ namespace CefSharp.Internals
     /// </summary>
     public static class DateTimeUtils
     {
-        private static DateTime FirstOfTheFirstNineteenSeventy = new DateTime(1970, 1, 1, 0, 0, 0);
+        private static readonly DateTime FirstOfTheFirstNineteenSeventy = new DateTime(1970, 1, 1, 0, 0, 0);
 
         /// <summary>
         /// Converts a cef

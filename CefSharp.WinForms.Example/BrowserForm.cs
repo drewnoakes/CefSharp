@@ -16,7 +16,7 @@ namespace CefSharp.WinForms.Example
         // Default to a small increment:
         private const double ZoomIncrement = 0.10;
 
-        private bool multiThreadedMessageLoopEnabled;
+        private readonly bool multiThreadedMessageLoopEnabled;
 
         public BrowserForm(bool multiThreadedMessageLoopEnabled)
         {

@@ -17,7 +17,7 @@ namespace CefSharp.Example.Filters
 	/// </summary>
 	public class ExperimentalStreamResponseFilter : IResponseFilter
 	{
-		private List<byte> dataOutBuffer = new List<byte>();
+		private readonly List<byte> dataOutBuffer = new List<byte>();
 
 		bool IResponseFilter.InitFilter()
 		{

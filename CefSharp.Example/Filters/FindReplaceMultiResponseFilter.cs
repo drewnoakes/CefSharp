@@ -30,7 +30,7 @@ namespace CefSharp.Example.Filters
         /// </summary>
         private int replaceCount;
 
-        private List<KeyValuePair<string, string>> dictionary;
+        private readonly List<KeyValuePair<string, string>> dictionary;
 
         public FindReplaceMultiResponseFilter(List<KeyValuePair<string, string>> dictionary) 
         {

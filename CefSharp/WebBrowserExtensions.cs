@@ -15,7 +15,7 @@ namespace CefSharp
 {
     public static class WebBrowserExtensions
     {
-        private static Type[] numberTypes = new Type[] { typeof(int), typeof(uint), typeof(double), typeof(decimal), typeof(float), typeof(Int64), typeof(Int16) };
+        private static readonly Type[] numberTypes = new Type[] { typeof(int), typeof(uint), typeof(double), typeof(decimal), typeof(float), typeof(Int64), typeof(Int16) };
 
         /// <summary>
         /// Returns the main (top-level) frame for the browser window.

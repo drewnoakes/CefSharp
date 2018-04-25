@@ -30,13 +30,13 @@ namespace CefSharp.Wpf.Rendering.Experimental
         /// The pixel format
         /// </summary>
         private static readonly PixelFormat PixelFormat = PixelFormats.Bgra32;
-        private static int BytesPerPixel = PixelFormat.BitsPerPixel / 8;
+        private static readonly int BytesPerPixel = PixelFormat.BitsPerPixel / 8;
 
-        private object lockObject = new object();
+        private readonly object lockObject = new object();
 
         private Size viewSize;
         private Size popupSize;
-        private DispatcherPriority dispatcherPriority;
+        private readonly DispatcherPriority dispatcherPriority;
 
         private MemoryMappedFile viewMemoryMappedFile;
         private MemoryMappedFile popupMemoryMappedFile;

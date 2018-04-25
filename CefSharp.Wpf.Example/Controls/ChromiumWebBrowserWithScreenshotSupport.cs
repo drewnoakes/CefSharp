@@ -31,7 +31,7 @@ namespace CefSharp.Wpf.Example.Controls
         private static extern void CopyMemory(IntPtr dest, IntPtr src, uint count);
 
         private static readonly PixelFormat PixelFormat = PixelFormats.Bgra32;
-        private static int BytesPerPixel = PixelFormat.BitsPerPixel / 8;
+        private static readonly int BytesPerPixel = PixelFormat.BitsPerPixel / 8;
 
         private volatile bool isTakingScreenshot = false;
         private Size? screenshotSize;

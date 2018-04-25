@@ -27,12 +27,12 @@ namespace CefSharp.Wpf.Rendering.Experimental
         /// The pixel format
         /// </summary>
         private static readonly PixelFormat PixelFormat = PixelFormats.Bgra32;
-        private static int BytesPerPixel = PixelFormat.BitsPerPixel / 8;
+        private static readonly int BytesPerPixel = PixelFormat.BitsPerPixel / 8;
 
-        private double dpiX;
-        private double dpiY;
-        private bool invalidateDirtyRect;
-        private DispatcherPriority dispatcherPriority;
+        private readonly double dpiX;
+        private readonly double dpiY;
+        private readonly bool invalidateDirtyRect;
+        private readonly DispatcherPriority dispatcherPriority;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WritableBitmapRenderHandler"/> class.

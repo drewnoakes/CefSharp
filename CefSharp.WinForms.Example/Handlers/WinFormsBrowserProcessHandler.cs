@@ -17,7 +17,7 @@ namespace CefSharp.WinForms.Example.Handlers
     public class WinFormsBrowserProcessHandler : BrowserProcessHandler
     {
         private Timer timer;
-        private TaskFactory factory;
+        private readonly TaskFactory factory;
 
         public WinFormsBrowserProcessHandler(TaskScheduler scheduler)
         {

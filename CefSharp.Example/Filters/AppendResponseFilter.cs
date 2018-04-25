@@ -11,12 +11,12 @@ namespace CefSharp.Example.Filters
 {
     public class AppendResponseFilter : IResponseFilter
     {
-        private static Encoding encoding = Encoding.UTF8;
+        private static readonly Encoding encoding = Encoding.UTF8;
 
         /// <summary>
         /// Overflow from the output buffer.
         /// </summary>
-        private List<byte> overflow = new List<byte>();
+        private readonly List<byte> overflow = new List<byte>();
 
         public AppendResponseFilter(string stringToAppend)
         {

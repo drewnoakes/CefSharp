@@ -39,12 +39,12 @@ namespace CefSharp.WinForms.Example.Helper
         /// <summary>
         /// The IBrowser that references the Popup
         /// </summary>
-        private IBrowser browser;
+        private readonly IBrowser browser;
 
         /// <summary>
         /// The browsers window handle(hwnd)
         /// </summary>
-        private IntPtr browserHandle;
+        private readonly IntPtr browserHandle;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ParentFormMessageInterceptor"/> class.

@@ -16,10 +16,10 @@ namespace CefSharp.SchemeHandler
     /// </summary>
     public class FolderSchemeHandlerFactory : ISchemeHandlerFactory
     {
-        private string rootFolder;
-        private string defaultPage;
-        private string schemeName;
-        private string hostName;
+        private readonly string rootFolder;
+        private readonly string defaultPage;
+        private readonly string schemeName;
+        private readonly string hostName;
         
         /// <summary>
         /// Initialize a new instance of FolderSchemeHandlerFactory

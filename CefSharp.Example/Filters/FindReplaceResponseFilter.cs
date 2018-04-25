@@ -11,17 +11,17 @@ namespace CefSharp.Example.Filters
 {
     public class FindReplaceResponseFilter : IResponseFilter
     {
-        private static Encoding encoding = Encoding.UTF8;
+        private static readonly Encoding encoding = Encoding.UTF8;
 
         /// <summary>
         /// String to find
         /// </summary>
-        private string findString;
+        private readonly string findString;
 
         /// <summary>
         /// String used for replacement
         /// </summary>
-        private string replacementString;
+        private readonly string replacementString;
 
         /// <summary>
         /// The portion of the find string that is currently matching.
@@ -31,7 +31,7 @@ namespace CefSharp.Example.Filters
         /// <summary>
         /// Overflow from the output buffer.
         /// </summary>
-        private List<byte> overflow = new List<byte>();
+        private readonly List<byte> overflow = new List<byte>();
 
         /// <summary>
         /// Number of times the the string was found/replaced.

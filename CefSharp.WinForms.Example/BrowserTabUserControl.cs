@@ -20,7 +20,7 @@ namespace CefSharp.WinForms.Example
         public IWinFormsWebBrowser Browser { get; private set; }
         private IntPtr browserHandle;
         private ChromeWidgetMessageInterceptor messageInterceptor;
-        private bool multiThreadedMessageLoopEnabled;
+        private readonly bool multiThreadedMessageLoopEnabled;
 
         public BrowserTabUserControl(Action<string, int?> openNewTab, string url, bool multiThreadedMessageLoopEnabled)
         {

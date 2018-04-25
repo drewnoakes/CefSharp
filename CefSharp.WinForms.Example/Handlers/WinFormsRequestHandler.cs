@@ -12,7 +12,7 @@ namespace CefSharp.WinForms.Example.Handlers
 {
     public class WinFormsRequestHandler : RequestHandler
     {
-        private Action<string, int?> openNewTab;
+        private readonly Action<string, int?> openNewTab;
 
         public WinFormsRequestHandler(Action<string, int?> openNewTab)
         {

@@ -14,8 +14,8 @@ namespace CefSharp.ModelBinding
     /// </summary>
     public class BindingMemberInfo
     {
-        PropertyInfo propertyInfo;
-        FieldInfo fieldInfo;
+        readonly PropertyInfo propertyInfo;
+        readonly FieldInfo fieldInfo;
 
         /// <summary>
         /// Gets a reference to the MemberInfo that this BindingMemberInfo represents. This can be a property or a field.
