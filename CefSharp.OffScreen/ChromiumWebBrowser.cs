@@ -478,17 +478,15 @@ namespace CefSharp.OffScreen
 
             if (screenshot == null || ignoreExistingScreenshot)
             {
-                EventHandler<OnPaintEventArgs> paint = null; // otherwise we cannot reference ourselves in the anonymous method below
-
-                paint = (sender, e) =>
+                void OnPaint(object sender, OnPaintEventArgs e)
                 {
                     // Chromium has rendered.  Tell the task about it.
-                    Paint -= paint;
+                    Paint -= OnPaint;
 
                     completionSource.TrySetResultAsync(ScreenshotOrNull());
-                };
+                }
 
-                Paint += paint;
+                Paint += OnPaint;
             }
             else
             {

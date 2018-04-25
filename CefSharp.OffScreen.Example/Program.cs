@@ -124,20 +124,19 @@ namespace CefSharp.OffScreen.Example
             //and switch to tcs.TrySetResult below - no need for the custom extension method
             var tcs = new TaskCompletionSource<bool>();
 
-            EventHandler<LoadingStateChangedEventArgs> handler = null;
-            handler = (sender, args) =>
+            void OnLoadingStateChanged(object sender, LoadingStateChangedEventArgs args)
             {
                 //Wait for while page to finish loading not just the first frame
                 if (!args.IsLoading)
                 {
-                    browser.LoadingStateChanged -= handler;
+                    browser.LoadingStateChanged -= OnLoadingStateChanged;
                     //This is required when using a standard TaskCompletionSource
                     //Extension method found in the CefSharp.Internals namespace
                     tcs.TrySetResultAsync(true);
                 }
-            };
+            }
 
-            browser.LoadingStateChanged += handler;
+            browser.LoadingStateChanged += OnLoadingStateChanged;
 
             if (!string.IsNullOrEmpty(address))
             {

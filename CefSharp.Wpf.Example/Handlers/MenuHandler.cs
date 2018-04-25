@@ -74,11 +74,9 @@ namespace CefSharp.Wpf.Example.Handlers
                     IsOpen = true
                 };
 
-                RoutedEventHandler handler = null;
-
-                handler = (s, e) =>
+                void OnClosed(object s, RoutedEventArgs e)
                 {
-                    menu.Closed -= handler;
+                    menu.Closed -= OnClosed;
 
                     //If the callback has been disposed then it's already been executed
                     //so don't call Cancel
@@ -86,9 +84,9 @@ namespace CefSharp.Wpf.Example.Handlers
                     {
                         callback.Cancel();
                     }
-                };
+                }
 
-                menu.Closed += handler;
+                menu.Closed += OnClosed;
 
                 foreach (var item in menuItems)
                 {
