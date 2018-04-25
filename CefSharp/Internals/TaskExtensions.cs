@@ -41,7 +41,7 @@ namespace CefSharp.Internals
         {
             switch (task.Status)
             {
-                case TaskStatus.RanToCompletion: return resultSetter.TrySetResult(task is Task<TResult> ? ((Task<TResult>)task).Result : default(TResult));
+                case TaskStatus.RanToCompletion: return resultSetter.TrySetResult(task is Task<TResult> t ? t.Result : default(TResult));
                 case TaskStatus.Faulted: return resultSetter.TrySetException(task.Exception.InnerExceptions);
                 case TaskStatus.Canceled: return resultSetter.TrySetCanceled();
                 default: throw new InvalidOperationException("The task was not completed.");

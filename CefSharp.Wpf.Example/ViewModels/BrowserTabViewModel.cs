@@ -167,8 +167,7 @@ namespace CefSharp.Wpf.Example.ViewModels
                         WebBrowser.FrameLoadEnd += (s, args) =>
                         {
                             //Sender is the ChromiumWebBrowser object 
-                            var browser = s as ChromiumWebBrowser;
-                            if (browser != null && !browser.IsDisposed)
+                            if (s is ChromiumWebBrowser browser && !browser.IsDisposed)
                             {
                                 browser.Dispatcher.BeginInvoke((Action)(() => browser.Focus()));
                             }

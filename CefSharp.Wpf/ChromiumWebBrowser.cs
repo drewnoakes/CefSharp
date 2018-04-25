@@ -1578,8 +1578,7 @@ namespace CefSharp.Wpf
                         }
                     }
 
-                    var window = source.RootVisual as Window;
-                    if(window != null)
+                    if(source.RootVisual is Window window)
                     {
                         window.StateChanged += WindowStateChanged;
                         window.LocationChanged += OnWindowLocationChanged;
@@ -1592,8 +1591,7 @@ namespace CefSharp.Wpf
             {
                 WpfKeyboardHandler.Dispose();
 
-                var window = args.OldSource.RootVisual as Window;
-                if (window != null)
+                if (args.OldSource.RootVisual is Window window)
                 {
                     window.StateChanged -= WindowStateChanged;
                     window.LocationChanged -= OnWindowLocationChanged;

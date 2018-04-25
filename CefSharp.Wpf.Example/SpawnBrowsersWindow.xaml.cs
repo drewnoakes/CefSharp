@@ -35,9 +35,8 @@ namespace CefSharp.Wpf.Example
 
         private async void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (browserContainer.Content is ChromiumWebBrowser)
+            if (browserContainer.Content is ChromiumWebBrowser oldBrowser)
             {
-                ChromiumWebBrowser oldBrowser = browserContainer.Content as ChromiumWebBrowser;
                 browserContainer.Content = null;
                 oldBrowser.Dispose();
             }

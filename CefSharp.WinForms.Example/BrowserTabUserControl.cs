@@ -158,8 +158,7 @@ namespace CefSharp.WinForms.Example
                 case "click":
                 {
                     var message = eventData.ToString();
-                    var dataDictionary = eventData as Dictionary<string, object>;
-                    if (dataDictionary != null)
+                    if (eventData is Dictionary<string, object> dataDictionary)
                     {
                         var result = string.Join(", ", dataDictionary.Select(pair => pair.Key + "=" + pair.Value));
                         message = "event data: " + result;

@@ -203,8 +203,7 @@ namespace CefSharp.Example
 
         public static async void RegisterTestResources(IWebBrowser browser)
         {
-            var handler = browser.ResourceHandlerFactory as DefaultResourceHandlerFactory;
-            if (handler != null)
+            if (browser.ResourceHandlerFactory is DefaultResourceHandlerFactory handler)
             {
                 const string renderProcessCrashedBody = "<html><body><h1>Render Process Crashed</h1><p>Your seeing this message as the render process has crashed</p></body></html>";
                 handler.RegisterHandler(RenderProcessCrashedUrl, ResourceHandler.FromString(renderProcessCrashedBody));

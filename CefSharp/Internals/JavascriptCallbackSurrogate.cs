@@ -35,13 +35,11 @@ namespace CefSharp.Internals
 
         public object GetDeserializedObject(object obj, Type targetType)
         {
-            var result = obj;
-            var dto = obj as JavascriptCallback;
-            if (dto != null)
+            if (obj is JavascriptCallback dto)
             {
-                result = callbackFactory.Create(dto);
+                return callbackFactory.Create(dto);
             }
-            return result;
+            return obj;
         }
 
         public object GetCustomDataToExport(MemberInfo memberInfo, Type dataContractType)
