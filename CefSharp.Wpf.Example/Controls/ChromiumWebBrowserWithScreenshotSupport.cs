@@ -41,7 +41,7 @@ namespace CefSharp.Wpf.Example.Controls
 
         public ICommand ScreenshotCommand { get; set; }
 
-        public ChromiumWebBrowserWithScreenshotSupport() : base()
+        public ChromiumWebBrowserWithScreenshotSupport()
         {
             ScreenshotCommand = new RelayCommand(TakeScreenshot);
         }
