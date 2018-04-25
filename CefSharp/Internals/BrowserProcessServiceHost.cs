@@ -17,7 +17,7 @@ namespace CefSharp.Internals
         public JavascriptObjectRepository JavascriptObjectRepository { get; private set; }
 
         public BrowserProcessServiceHost(JavascriptObjectRepository javascriptObjectRepository, int parentProcessId, int browserId, IJavascriptCallbackFactory callbackFactory)
-            : base(typeof(BrowserProcessService), new Uri[0])
+            : base(typeof(BrowserProcessService))
         {
             JavascriptObjectRepository = javascriptObjectRepository;
 

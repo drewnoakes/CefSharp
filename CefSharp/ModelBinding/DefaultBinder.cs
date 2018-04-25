@@ -151,7 +151,7 @@ namespace CefSharp.ModelBinding
 
             if (modelType.IsArray())
             {
-                var generictoArrayMethod = ToArrayMethodInfo.MakeGenericMethod(new[] { genericType });
+                var generictoArrayMethod = ToArrayMethodInfo.MakeGenericMethod(genericType);
                 return generictoArrayMethod.Invoke(null, new[] { bindingContext.Model });
             }
             return bindingContext.Model;
