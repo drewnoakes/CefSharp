@@ -33,10 +33,10 @@ namespace CefSharp.Wpf.Example.Controls
         private static readonly PixelFormat PixelFormat = PixelFormats.Bgra32;
         private static readonly int BytesPerPixel = PixelFormat.BitsPerPixel / 8;
 
-        private volatile bool isTakingScreenshot = false;
+        private volatile bool isTakingScreenshot;
         private Size? screenshotSize;
         private int oldFrameRate;
-        private int ignoreFrames = 0;
+        private int ignoreFrames;
         private TaskCompletionSource<InteropBitmap> screenshotTaskCompletionSource;
 
         public ICommand ScreenshotCommand { get; set; }
